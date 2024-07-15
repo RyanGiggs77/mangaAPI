@@ -31,8 +31,6 @@
         "DB_DATABASE": "manga_eagersolve",
         "DB_USERNAME": "manga_eagersolve",
         "FILESYSTEM_DISK": "s3",
-        "AWS_ACCESS_KEY_ID":"AKIAZI2LFIJ7TTRKK3XH",
-        "AWS_SECRET_ACCESS_KEY":"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",
         "AWS_DEFAULT_REGION":"ap-southeast-2",
         "AWS_BUCKET":"andretri",
         "AWS_USE_PATH_STYLE_ENDPOINT":"true"
