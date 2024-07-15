@@ -79,7 +79,7 @@ class PageController extends Controller
             $image = $request->file('image');
             $imageName = time().'_'.$image->getClientOriginalName();
             $imagePath = 'PAGE/' . $manga->slug . '/' . $chapter->number;
-            $image->storeAs($imagePath, $imageName, 'public');
+            $image->storeAs($imagePath, $imageName, 's3');
 
             $page = new Page();
             $page->chapter_id = $chapter->id;
