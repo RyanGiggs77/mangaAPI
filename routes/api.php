@@ -5,9 +5,10 @@ use App\Http\Controllers\MangaController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AuthController;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
-Route::middleware('api')->group(function () {
-    // Manga Routes
+Route::middleware(['auth:sanctum', EnsureFrontendRequestsAreStateful::class])->group(function () {
     Route::get('/mangas', [MangaController::class, 'index']);
     Route::get('/mangas/{slug}', [MangaController::class, 'show']);
     Route::post('/mangas', [MangaController::class, 'store']);
@@ -32,3 +33,8 @@ Route::middleware('api')->group(function () {
 
     Route::get('/search/chapter', [SearchController::class, 'searchChapter']);
 });
+
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::middleware('auth:api')->get('user', [AuthController::class, 'user']);

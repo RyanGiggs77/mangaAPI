@@ -55,6 +55,8 @@ class PageController extends Controller
 
     public function store(Request $request, $manga_slug, $chapter_number)
     {
+        // see what is in the request via teriminal
+        // dd($request->all());
         $manga = Manga::where('slug', $manga_slug)->first();
         if (!$manga) {
             return response()->json(['message' => 'Manga not found'], 404);
