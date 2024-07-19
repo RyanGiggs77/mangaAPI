@@ -61,7 +61,7 @@ class MangaController extends Controller
             $image = $request->file('image');
             $imageName = time().'_'.$image->getClientOriginalName();
             $imagePath = 'images/' . $data['slug'];
-            $image->storeAs($imagePath, $imageName, 'public');
+            $image->storeAs($imagePath, $imageName, 's3');
             $data['image'] = $imagePath . '/' . $imageName;
         }
 
